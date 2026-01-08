@@ -4,6 +4,7 @@ const DOM = {
     tiles: document.querySelectorAll(".tile"),
     button: document.querySelector("#play-again"),
     message: document.querySelector(".message"),
+    score: document.querySelector(".score")
 }
 
 export function bindPlayersForm(handler) {
@@ -47,6 +48,7 @@ export function updateUI(index, board, game, players) {
         highlightCombo(game);
         displayWinner(game);
         showPlayAgain();
+        displayScore(players);
     }
 }
 
@@ -77,4 +79,10 @@ export function showPlayAgain() {
 
 export function displayCurrentPlayer(players) {
     DOM.message.textContent = `${players.currentPlayer.name}'s turn`;
+}
+
+export function displayScore(players) {
+    DOM.score.textContent =
+        `${players.players[0].name}: ${players.players[0].score}` +
+        `${players.players[1].name}: ${players.players[1].score}`  
 }

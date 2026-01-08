@@ -7,7 +7,7 @@ import {
     bindPlayClick,
     updateUI,
     clearUI,
-    displayCurrentPlayer
+    displayCurrentPlayer,
 } from "./ui.js";
 
 function main() {
