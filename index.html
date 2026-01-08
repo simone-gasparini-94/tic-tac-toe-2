@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="board">
+    <form id="player-form">
+        <input type="text" name="player1" placeholder="player 1">
+        <input type="text" name="player2" placeholder="player 2">
+        <button type="submit">Play</button>
+    </form>
+    <div class="board hidden">
         <div class="row">
             <div class="tile" id="0"></div>
             <div class="tile" id="1"></div>

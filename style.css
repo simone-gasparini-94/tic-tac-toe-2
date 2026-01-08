@@ -4,6 +4,13 @@
 
 .tile {
     border: 1px solid #444;
-    width: 90px;
-    height: 90px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
 }

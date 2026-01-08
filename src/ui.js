@@ -1,4 +1,17 @@
-export function bindEvent(handler) {
+export function bindPlayersForm(handler) {
+    const $form = document.querySelector("#player-form");
+    const $board = document.querySelector(".board");
+    $form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const player1 = $form.elements.player1.value || "player 1";      
+        const player2 = $form.elements.player2.value || "player 2";
+        $form.classList.add("hidden");
+        $board.classList.remove("hidden");
+        handler(player1, player2);
+    });
+}
+
+export function bindTileClick(handler) {
     const $board = document.querySelector(".board");
     $board.addEventListener("click", (e) => {
         if (e.target.className === "tile") {

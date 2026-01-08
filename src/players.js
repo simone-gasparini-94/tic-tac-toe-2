@@ -13,9 +13,9 @@ export function swapCurrentPlayer(players) {
         players.players[1] : players.players[0];
 }
 
-export function createPlayers() {
-    const player1 = createPlayer("player1", "X");
-    const player2 = createPlayer("player2", "O");
+export function createPlayers(p1, p2) {
+    const player1 = createPlayer(p1, "X");
+    const player2 = createPlayer(p2, "O");
     const players = [player1, player2];
     let currentPlayer = chooseCurrentPlayer(players);
     return {
