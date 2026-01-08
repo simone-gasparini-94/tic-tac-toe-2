@@ -1,7 +1,13 @@
-import { createBoard} from "./board.js";
-import { createPlayers } from "./players.js";
-import { createGame, playRound } from "./game.js";
-import { bindPlayersForm, bindTileClick, updateUI } from "./ui.js";
+import { createBoard, clearBoard } from "./board.js";
+import { chooseCurrentPlayer, createPlayers } from "./players.js";
+import { createGame, playRound, resetGame } from "./game.js";
+import {
+    bindPlayersForm,
+    bindTileClick,
+    bindPlayClick,
+    updateUI,
+    clearUI,
+} from "./ui.js";
 
 function main() {
     const board = createBoard();
@@ -15,6 +21,12 @@ function main() {
             playRound(index, game, board, players);
             updateUI(index, board, game);
         }
+    });
+    bindPlayClick(() => {
+        clearBoard(board);
+        resetGame(game);
+        clearUI();
+        chooseCurrentPlayer(players);
     });
 }
 

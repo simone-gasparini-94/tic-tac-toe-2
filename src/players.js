@@ -2,7 +2,7 @@ function createPlayer(name, mark) {
     return {name, mark};
 }
 
-function chooseCurrentPlayer(players) {
+export function chooseCurrentPlayer(players) {
     const roll = Math.floor(Math.random() * 2);
     return players[roll];
 }

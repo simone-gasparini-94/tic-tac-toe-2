@@ -12,13 +12,8 @@ export function createBoard() {
     };
 }
 
-export function displayBoard(board) {
-    for (let i = 0; i < board.BOARD_TILES; i += 3) {
-        console.log(
-            board.board[i],
-            board.board[i + 1],
-            board.board[i + 2]
-        );
+export function clearBoard(board) {
+    for (let i = 0; i < board.board.length; i++) {
+        board.board[i] = board.emptyTile;
     }
-    console.log("\n");
 }

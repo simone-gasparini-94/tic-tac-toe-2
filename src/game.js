@@ -12,7 +12,7 @@ export function createGame() {
 }
 
 function isTileAlreadyMarked(index, board) {
-    return (board.board[index] !== "-");
+    return (board.board[index] !== board.emptyTile);
 }
 
 function placeTile(board, currentPlayer, index) {
@@ -67,8 +67,14 @@ function checkEnd(game, board, currentPlayer) {
 
 export function playRound(index, game, board, players) {
     if (isTileAlreadyMarked(index, board) === false) {
+        console.log(players.currentPlayer);
         placeTile(board, players.currentPlayer, index);
         checkEnd(game, board, players.currentPlayer);
         swapCurrentPlayer(players);
     }
+}
+
+export function resetGame(game) {
+    game.end = false;
+    game.status = null;
 }
