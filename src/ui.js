@@ -44,8 +44,21 @@ export function updateUI(index, board, game, players) {
     DOM.tiles[index].textContent = board.board[index];
     displayCurrentPlayer(players);
     if (game.end === true) {
+        highlightCombo(game);
         displayWinner(game);
         showPlayAgain();
+    }
+}
+
+function highlightCombo(game) {
+    for (let i = 0; i < game.combo.length; i++) {
+        DOM.tiles[game.combo[i]].classList.add("highlight");
+    }
+}
+
+function removeHighlight() {
+    for (let i = 0; i < DOM.tiles.length; i++) {
+        DOM.tiles[i].classList.remove("highlight");
     }
 }
 
@@ -53,6 +66,7 @@ export function clearUI() {
     for (let tile of DOM.tiles) {
         tile.textContent = "";
     }
+    removeHighlight();
     DOM.button.classList.add("hidden");
 }
 

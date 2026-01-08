@@ -4,10 +4,12 @@ export function createGame() {
     let draw = "draw";
     let end = false;
     let status = null;
+    let combo = null;
     return {
         end,
         draw,
         status,
+        combo
     }
 }
 
@@ -42,6 +44,7 @@ function checkWin(game, board, currentPlayer) {
             i++;
         }
         if (i === combo.length) {
+            game.combo = combo;
             game.end = true;
             game.status = currentPlayer.name;
             return ;
@@ -67,7 +70,6 @@ function checkEnd(game, board, currentPlayer) {
 
 export function playRound(index, game, board, players) {
     if (isTileAlreadyMarked(index, board) === false) {
-        console.log(players.currentPlayer);
         placeTile(board, players.currentPlayer, index);
         checkEnd(game, board, players.currentPlayer);
         swapCurrentPlayer(players);
