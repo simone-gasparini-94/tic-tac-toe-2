@@ -1,5 +1,6 @@
 function createPlayer(name, mark) {
-    return {name, mark};
+    let score = 0;
+    return {name, mark, score};
 }
 
 export function chooseCurrentPlayer(players) {

@@ -51,6 +51,7 @@ export function updateUI(index, board, game, players) {
 }
 
 function highlightCombo(game) {
+    if (game.combo == null) return;
     for (let i = 0; i < game.combo.length; i++) {
         DOM.tiles[game.combo[i]].classList.add("highlight");
     }

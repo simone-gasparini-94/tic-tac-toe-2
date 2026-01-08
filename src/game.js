@@ -47,6 +47,7 @@ function checkWin(game, board, currentPlayer) {
             game.combo = combo;
             game.end = true;
             game.status = currentPlayer.name;
+            currentPlayer.score++;
             return ;
         }
     }
@@ -79,4 +80,5 @@ export function playRound(index, game, board, players) {
 export function resetGame(game) {
     game.end = false;
     game.status = null;
+    game.combo = null;
 }
