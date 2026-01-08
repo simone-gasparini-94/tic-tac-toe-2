@@ -40,8 +40,9 @@ function displayWinner(game) {
     }
 }
 
-export function updateUI(index, board, game) {
+export function updateUI(index, board, game, players) {
     DOM.tiles[index].textContent = board.board[index];
+    displayCurrentPlayer(players);
     if (game.end === true) {
         displayWinner(game);
         showPlayAgain();
@@ -52,10 +53,13 @@ export function clearUI() {
     for (let tile of DOM.tiles) {
         tile.textContent = "";
     }
-    DOM.message.textContent = "";
     DOM.button.classList.add("hidden");
 }
 
 export function showPlayAgain() {
     DOM.button.classList.remove("hidden");
+}
+
+export function displayCurrentPlayer(players) {
+    DOM.message.textContent = `${players.currentPlayer.name}'s turn`;
 }
