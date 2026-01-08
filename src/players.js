@@ -7,10 +7,10 @@ function chooseCurrentPlayer(players) {
     return players[roll];
 }
 
-function swapCurrentPlayer(players) {
+export function swapCurrentPlayer(players) {
     players.currentPlayer = 
-        players.currentPlayer === players.player[0] ? 
-        players.player[1] : players.player[0];
+        players.currentPlayer === players.players[0] ? 
+        players.players[1] : players.players[0];
 }
 
 

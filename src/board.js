@@ -7,7 +7,8 @@ export function createBoard() {
     }
     return {
         board,
-        BOARD_TILES
+        BOARD_TILES,
+        emptyTile
     };
 }
 
@@ -19,4 +20,5 @@ export function displayBoard(board) {
             board.board[i + 2]
         );
     }
+    console.log("\n");
 }
