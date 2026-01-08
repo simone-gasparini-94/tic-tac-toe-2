@@ -13,7 +13,6 @@ export function swapCurrentPlayer(players) {
         players.players[1] : players.players[0];
 }
 
-
 export function createPlayers() {
     const player1 = createPlayer("player1", "X");
     const player2 = createPlayer("player2", "O");

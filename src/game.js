@@ -11,6 +11,10 @@ export function createGame() {
     }
 }
 
+function isTileAlreadyMarked(index, board) {
+    return (board.board[index] !== "-");
+}
+
 function placeTile(board, currentPlayer, index) {
     if (index < 0 || index >= board.BOARD_TILES) {
         return ;
@@ -61,21 +65,10 @@ function checkEnd(game, board, currentPlayer) {
     }
 }
 
-function generateRandomTileIndex(board) {
-    const arr = board.board;
-    let freeTilesIndexes = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === board.emptyTile) {
-            freeTilesIndexes.push(i);
-        }
+export function playRound(index, game, board, players) {
+    if (isTileAlreadyMarked(index, board) === false) {
+        placeTile(board, players.currentPlayer, index);
+        checkEnd(game, board, players.currentPlayer);
+        swapCurrentPlayer(players);
     }
-    const index = Math.floor(Math.random() * freeTilesIndexes.length);
-    return (freeTilesIndexes[index]);
-}
-
-export function playRound(game, board, players) {
-    const index = generateRandomTileIndex(board);
-    placeTile(board, players.currentPlayer, index);
-    checkEnd(game, board, players.currentPlayer);
-    swapCurrentPlayer(players);
 }

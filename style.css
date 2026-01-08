@@ -1,0 +1,9 @@
+.row {
+    display: flex;
+}
+
+.tile {
+    border: 1px solid #444;
+    width: 90px;
+    height: 90px;
+}
